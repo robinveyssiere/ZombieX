@@ -44,6 +44,10 @@ public class movement : MonoBehaviour
             }
             spawn_speed = 5f;
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public Vector3 CalculateDirection()
@@ -55,7 +59,7 @@ public class movement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            direction.x -= 1.0f;
+            transform.Rotate(Vector3.forward * 5);
         }
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
@@ -63,7 +67,7 @@ public class movement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
-            direction.x += 1.0f;
+            transform.Rotate(Vector3.forward * -5);
         }
         return direction.normalized;
     }
